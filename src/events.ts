@@ -96,12 +96,13 @@ export function onDriverClick(
 
   // We want to be the absolute first one to hear about the event
   const useCapture = true;
+  const listenerOptions = { capture: true, passive: false };
 
   // Events to disable
-  document.addEventListener("pointerdown", listenerWrapper, useCapture);
-  document.addEventListener("mousedown", listenerWrapper, useCapture);
-  document.addEventListener("pointerup", listenerWrapper, useCapture);
-  document.addEventListener("mouseup", listenerWrapper, useCapture);
+  document.addEventListener("pointerdown", listenerWrapper, listenerOptions);
+  document.addEventListener("mousedown", listenerWrapper, listenerOptions);
+  document.addEventListener("pointerup", listenerWrapper, listenerOptions);
+  document.addEventListener("mouseup", listenerWrapper, listenerOptions);
 
   // Actual click handler
   document.addEventListener(
